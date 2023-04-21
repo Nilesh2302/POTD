@@ -1,0 +1,47 @@
+
+https://leetcode.com/problems/add-two-numbers/
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        m = []
+        n = []
+        curr = l1
+        while curr:
+            m.append(curr.val)
+            curr = curr.next
+        
+        curr = l2
+        while curr:
+            n.append(curr.val)
+            curr = curr.next
+        
+        m.reverse()
+        n.reverse()
+    
+    
+            
+
+        a = 0
+        b = 0
+        for i in m:
+            a = a * 10 + i
+            
+
+        for j in n:
+            b = b*10 + j
+
+        ans = a + b
+        
+        if ans == 0:
+            return ListNode(0)
+        
+        z = ans%10
+        head = ListNode(z)
+        curr = head
+        ans //= 10
+        while ans:
+            z = ans%10
+            curr.next = ListNode(z)
+            curr = curr.next
+            ans //= 10
+       
+        return head 
